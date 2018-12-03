@@ -231,7 +231,8 @@ export class Grid {
       source.setSort([initialSource], false);
     }
     if (this.getSetting('pager.display') === true) {
-      source.setPaging(1, this.getSetting('pager.perPage'), false);
+      const paging = source.getPaging();
+      source.setPaging(paging.page || 1, this.getSetting('pager.perPage'), false);
     }
 
     source.refresh();
